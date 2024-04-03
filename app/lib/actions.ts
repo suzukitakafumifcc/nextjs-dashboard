@@ -104,3 +104,15 @@ export type State = {
   };
   message?: string | null;
 };
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData,
+) {
+  try {
+    await signIn('credentials', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+    }
+  }
+}
